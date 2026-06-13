@@ -1,29 +1,30 @@
-Real-Time Multiplayer Game using WebSockets
-Overview
+# Real-Time Multiplayer Web Game
 
-This project is a real-time multiplayer web application built using Node.js, Express, WebSockets, HTML, CSS, and JavaScript. It demonstrates how WebSocket technology can be used to establish persistent, bidirectional communication between clients and a server, enabling live multiplayer interactions.
+A real-time multiplayer web game built using Node.js, Express, WebSockets, HTML, CSS, and JavaScript. The project demonstrates how WebSocket technology enables instant, bidirectional communication between connected players for live gameplay.
 
-The application allows two players to connect to the game, receive randomly assigned turns, and exchange game actions in real time through socket connections.
+## Features
 
-Features
-Real-time multiplayer communication
-WebSocket-based client-server architecture
-Random player turn selection
-Turn-based gameplay system
-Live move synchronization
-Player connection and disconnection handling
-Simple and responsive user interface
-Support for multiple devices on the same network
-Technologies Used
-Frontend
-HTML5
-CSS3
-JavaScript
-Backend
-Node.js
-Express.js
-WebSocket (ws)
-Project Structure
+- Real-time player communication using WebSockets
+- Multiplayer gameplay support
+- Random player turn selection
+- Turn-based game flow
+- Live move synchronization between players
+- Player join functionality
+- Automatic connection and disconnection handling
+- Simple and responsive user interface
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- WebSocket (ws)
+- HTML5
+- CSS3
+- JavaScript (ES6)
+
+## Project Structure
+
+```text
 project/
 │
 ├── server.js
@@ -31,36 +32,72 @@ project/
 │
 └── public/
     └── index.html
-How It Works
-Players connect to the server through a WebSocket connection.
-The server stores connected players.
-When two players join, the server randomly selects one player to start.
-Players send moves through WebSocket messages.
-The server forwards moves to the opponent instantly.
-Turns are switched after each move.
-If a player disconnects, the server removes them from the active player list.
-Installation
-Clone the Repository
+```
+
+## Installation
+
+1. Clone the repository:
+
+```bash
 git clone https://github.com/your-username/your-repository-name.git
+```
+
+2. Navigate to the project directory:
+
+```bash
 cd your-repository-name
-Install Dependencies
+```
+
+3. Install dependencies:
+
+```bash
 npm install
-Run the Server
+```
+
+4. Start the server:
+
+```bash
 node server.js
-Open the Application
+```
+
+5. Open your browser and visit:
+
+```text
 http://localhost:3000
+```
 
-To connect from another device on the same network, use:
+## How It Works
 
-http://YOUR_LOCAL_IP:3000
-WebSocket Communication
-Client Connection
-const socket = new WebSocket("ws://localhost:3000");
-Sending Data
-socket.send(JSON.stringify(data));
-Receiving Data
-socket.onmessage = (event) => {
-    console.log(event.data);
-};
+1. Players connect to the server through a WebSocket connection.
+2. The server stores connected players.
+3. When two players join, the server randomly selects one player to start.
+4. Players send moves to the server using WebSockets.
+5. The server forwards moves to the opponent in real time.
+6. Turns are switched after each move.
+7. If a player disconnects, the server removes them from the active player list.
 
-The WebSocket connection remains open throughout the session, allowing both the server and players to exchange messages instantly without repeatedly creating new connections.
+## WebSocket Communication
+
+### Client to Server
+
+- Join game
+- Send move
+- Switch turn
+
+### Server to Client
+
+- Start game
+- Your turn
+- Wait for opponent
+- Opponent move updates
+
+## Learning Objectives
+
+This project helps understand:
+
+- Client-server architecture
+- Real-time communication
+- WebSocket implementation
+- Multiplayer game logic
+- Event-driven programming
+- Node.js backend development
